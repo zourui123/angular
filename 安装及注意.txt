@@ -1,8 +1,10 @@
 1 ng new My_New_Project --style=scss
 
+npm install node-sass --save-dev
+
 2 npm install
 
-ng server --open  打开网页
+ng serve --open  打开网页
 
 创建组件
 
