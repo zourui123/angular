@@ -1,0 +1,19 @@
+
+  <input type="text" #inputval>
+  {{inputval.value}}
+  <button (click)="sayhello(inputval.value)">ass</button>
+
+<div [ngSwitch]="mapStatus">
+    <p *ngSwitchCase="'下载中'">下载中...</p>
+    <p *ngSwitchCase="'读取'">读取...</p>
+    <p *ngSwitchDefault>系统繁忙...</p>
+</div>
+
+<div [ngClass]="classses">啊啊啊啊啊啊啊啊啊啊啊</div>
+<button (click)="setclass()">更改</button>
+
+<div>{{currentTime | date:'yyyy-MM-dd HH:mm:ss'}}</div>
+
+<div>{{texts?.name}}</div>
+
+<button (click)="services()">触发传值</button>

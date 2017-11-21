@@ -1,0 +1,30 @@
+1
+npm install @angular/animations --save
+2
+flyin.ts中
+import { trigger, state, style, transition, animate } from '@angular/animations';
+
+然后定义动画
+
+3
+在AppModule.ts中引入运动的模块BrowserAnimationsModule
+
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+ imports: [
+  BrowserAnimationsModule
+  ],
+
+4 在需要引入的文件中
+ 
+一 import { flyIn } from '../flyin';
+二  animations: [flyIn]
+
+具体如 flyin.components.ts
+
+5 如 flyin.components.html 
+
+
+使用void和*状态，可以定义元素进场与离场时的转场动画：
+
+进场：void => *
+离场：* => void

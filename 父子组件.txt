@@ -1,0 +1,15 @@
+父组件到子组件  input   子到父 output  
+不是父子组件  可以利用 service
+
+父组件掉子组件方法  父组件中
+
+<child #child></child>  get 是子组件中的方法   #child有作用域问题  不能在类中使用
+<button (click)="child.get()"></button>
+
+类中调用子组件
+@ViewChild(ChildComponent)
+childComponent: ChildComponent
+
+onInit(){
+	this.childComponent: .get() // 调用子组件方法
+}

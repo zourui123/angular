@@ -1,0 +1,7 @@
+//!! 服务一定要在app.js中 引用 然后再provider中定义 不然  提示noprovider
+
+
+
+添加服务之后 
+
+在组件中 引用 推荐  private storage:Storage
