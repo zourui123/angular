@@ -9,22 +9,37 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MessageService } from './service/bus.service';
 import { FlyinComponent } from './animations/flyin/flyin.component';
-import { ShadowComponent } from './components/shadow/shadow.component';
+
 import { HighlightDirective } from './common/highlight.directive'
+
+// 路由引入
+
+import { RouterModule } from '@angular/router';
+
+import { appRouter} from './app.routes'
+// 共享组件
+import { SharedModule } from './shared/shared.module';
+
+// export const ROUTES: Routes = [
+//     {path: '',redirectTo: '/header',pathMatch:'full'},
+//     {path:'header',component:'HeaderComponent'},
+//     {path:'shadow',component:'ShadowComponent'},
+//     {path:'**',component:'HeaderComponent'}
+// ]
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ShadowComponent,
-   HighlightDirective, 
+    HighlightDirective,
     FlyinComponent, 
     FooterComponent
   ],
  // 用动画的话需要引入 
   imports: [
-    BrowserModule,BrowserAnimationsModule
+    BrowserModule,BrowserAnimationsModule,RouterModule.forRoot(appRouter),SharedModule
   ],
+  exports: [ RouterModule ],
   providers: [MessageService],
   bootstrap: [AppComponent],
   // 动态创建 需要引入

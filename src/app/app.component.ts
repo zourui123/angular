@@ -1,5 +1,7 @@
 import { Component,ViewChild,ViewContainerRef,ComponentRef,ComponentFactoryResolver } from '@angular/core';
 // 动态创建 需要引入
+import { Router } from '@angular/router';
+
 import { FooterComponent } from './components/footer/footer.component';
 @Component({
   selector: 'app-root',
@@ -14,9 +16,12 @@ export class AppComponent {
 
 
   // 动态创建 需要引入
-  constructor(private resolver:ComponentFactoryResolver){}
+  constructor(
+    private resolver:ComponentFactoryResolver,
+    public router:Router){}
   public title = 'app';
 
+ 
   // 动态创建 需要引入 写在ngAfterContentInit 钩子中
   ngAfterContentInit() {
     const childComp = this.resolver.resolveComponentFactory(FooterComponent);
@@ -30,5 +35,9 @@ export class AppComponent {
   // 删除 动态创建的子组件
   public destoryChild():void{
     this.comp1.destroy();
+  }
+  public goNav(){
+    // 需要引入 router
+      this.router.navigate(['/shadow'],{queryParams:{userId:222,name:'zzz'})
   }
 }
