@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./shadow.component.scss']
 })
 export class ShadowComponent implements OnInit {
-
+  
   constructor(public activeRoute: ActivatedRoute) { }
 
   ngOnInit(){
@@ -21,5 +21,5 @@ export class ShadowComponent implements OnInit {
       console.log(params)
     })
   }
-
+ 
 }

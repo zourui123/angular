@@ -14,33 +14,41 @@ import { HighlightDirective } from './common/highlight.directive'
 
 // 路由引入
 
-import { RouterModule } from '@angular/router';
+import { RouterModule,PreloadAllModules } from '@angular/router';
 
 import { appRouter} from './app.routes'
 // 共享组件
 import { SharedModule } from './shared/shared.module';
+// 路由守卫 引入
+import { AuthGuard } from './auth/auth.guard'
+import { AuthService } from './auth/auth.service'
 
-// export const ROUTES: Routes = [
-//     {path: '',redirectTo: '/header',pathMatch:'full'},
-//     {path:'header',component:'HeaderComponent'},
-//     {path:'shadow',component:'ShadowComponent'},
-//     {path:'**',component:'HeaderComponent'}
-// ]
+// 定义的预加载 
+import { FormsComponent } from './components/forms/forms.component'
+import { MyPreloadingStrategy } from './common/preloading'
+
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    FormsComponent,
     HighlightDirective,
     FlyinComponent, 
     FooterComponent
   ],
  // 用动画的话需要引入 
   imports: [
-    BrowserModule,BrowserAnimationsModule,RouterModule.forRoot(appRouter),SharedModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    RouterModule.forRoot(appRouter,{preloadingStrategy:MyPreloadingStrategy}),
+    SharedModule
   ],
   exports: [ RouterModule ],
-  providers: [MessageService],
+
+  providers: [MessageService,MyPreloadingStrategy,AuthGuard,AuthService],
   bootstrap: [AppComponent],
   // 动态创建 需要引入
   entryComponents:[FooterComponent]

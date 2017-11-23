@@ -1,9 +1,8 @@
-<div class="jumbotron">
-    
-  <h1>Hello, world!</h1>
-  <p>...</p>
-  <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
-</div>
+<a routerLink="/header">头部</a>
+<a [routerLink]="['shadow',{user:111,name:'zou'}]">shadow</a>
+<a routerLink="/footer">尾部</a>
+<button class="btn btn-success" (click)="goNav()">手动导航跳转</button>
+<router-outlet></router-outlet>
 <userinfo></userinfo>
 <i class="fa fa-address-book" aria-hidden="true"></i>
 <i class="fa fa-address-book" aria-hidden="true"></i>
@@ -16,9 +15,7 @@
 <flyin></flyin>
 <p highlight>重中之重重中之重</p>
 
-<a routerLink="/header">头部</a>
-<a [routerLink]="['shadow',{user:111,name:'zou'}]">shadow</a>
 
-<button class="btn btn-success" (click)="goNav()">手动导航跳转</button>
-<router-outlet></router-outlet>
+<forms></forms>
+
 

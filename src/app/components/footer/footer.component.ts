@@ -13,6 +13,8 @@ import { MessageService } from '../../service/bus.service'
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
+  public jokeContent:string = '';
+  public saved:boolean = true;
   message: any;
   subscription: Subscription;
   title:string;
@@ -29,5 +31,14 @@ export class FooterComponent implements OnInit {
   }
   ngAfterViewInit(){
       console.log(this.greetDiv)
+  }
+  writeJoke(value){
+    this.jokeContent = value;
+    this.saved = false;
+  }
+  saveContent(){
+    console.log(this.jokeContent)
+    this.jokeContent = '';
+    this.saved = true
   }
 }

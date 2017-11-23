@@ -38,6 +38,6 @@ export class AppComponent {
   }
   public goNav(){
     // 需要引入 router
-      this.router.navigate(['/shadow'],{queryParams:{userId:222,name:'zzz'})
+      this.router.navigate(['/shadow'],{queryParams:{userId:222,name:'zzz'}})
   }
 }

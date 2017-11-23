@@ -5,10 +5,14 @@ import { ShadowComponent } from './shadow.component';
 // 动态创建 需要引入组件
 
 
-// 路由引入
 
+// 路由引入
 import { RouterModule } from '@angular/router';
 import { shadowRouter } from './shadow.routes'
+
+
+
+
 // 共享模块
 import { SharedModule } from '../../shared/shared.module';
 
