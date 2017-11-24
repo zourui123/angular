@@ -16,7 +16,7 @@ ng g component components/header
 <input (keyup)='handle($event)'/>
 
 <input [(ngModel)] = 'myData' />
-
+ngModel 需要 import  formModul
 
 
 不让组件带app "prefix": "app",  变成 "prefix": "",

@@ -13,6 +13,7 @@ import { FlyinComponent } from './animations/flyin/flyin.component';
 import { HighlightDirective } from './common/highlight.directive'
 
 // 路由引入
+import { FormsModule } from '@angular/forms';
 
 import { RouterModule,PreloadAllModules } from '@angular/router';
 
@@ -28,7 +29,9 @@ import { FormsComponent } from './components/forms/forms.component'
 import { MyPreloadingStrategy } from './common/preloading'
 
 
+import { FormService } from './components/forms/form.service';
 
+import { HttpModule,JsonpModule ,Http} from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -44,11 +47,13 @@ import { MyPreloadingStrategy } from './common/preloading'
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(appRouter,{preloadingStrategy:MyPreloadingStrategy}),
-    SharedModule
+    SharedModule,
+    HttpModule,
+    FormsModule
   ],
   exports: [ RouterModule ],
 
-  providers: [MessageService,MyPreloadingStrategy,AuthGuard,AuthService],
+  providers: [MessageService,MyPreloadingStrategy,AuthGuard,AuthService,FormService],
   bootstrap: [AppComponent],
   // 动态创建 需要引入
   entryComponents:[FooterComponent]
