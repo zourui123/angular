@@ -14,8 +14,10 @@
 <button (click)="header.sayhello()">调子组件方法</button>
 <flyin></flyin>
 <p highlight>重中之重重中之重</p>
-
-
-<forms></forms>
-
+<forms [count]="initCount"></forms>
+<ul>
+    <li *ngFor ="let item of hero" (click)="selected(item)">{{ item.name }}  -- 1</li>
+</ul>
+<footer (change)="getChange($event)"></footer>
+<div> ----   {{changeMsg}} -----</div>
 

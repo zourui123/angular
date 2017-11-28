@@ -11,5 +11,8 @@ export class UserinfoComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  
+  ngAfterContentInit(hero){
+      console.log(hero)
+  }
 }

@@ -1,0 +1,48 @@
+不是父子组件  可以利用 service
+
+属性:
+
+
+父组件到子组件  input   
+父组件中
+
+<child  count = "initCount"></child>
+
+ts中  initCount : 5
+
+子组件中
+html中 {{ count }}
+ts中
+引入input
+
+@input() count:number
+
+
+方法: 
+子到父 output  
+
+子组件中
+html 
+<button (click)="clicked()">点击</button>
+ts 
+引入 output,EventEmitter
+ count: number = 22222222222;
+  @Output() change:EventEmitter<number> = new EventEmitter<number>();
+
+  clicked(){
+    console.log(1111)
+    this.change.emit(this.count)
+  }
+
+父组件
+ts
+ changeMsg: string;
+public getChange(event: number){
+    console.log(2222)
+  this.changeMsg = '子组件change事件触发 值为:' + event
+  } 
+html 
+<footer (change)="getChange($event)"></footer>
+<div> ----   {{changeMsg}} -----</div>
+
+

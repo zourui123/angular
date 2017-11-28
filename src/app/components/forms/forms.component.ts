@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { FormService } from './form.service';
 
@@ -13,6 +13,7 @@ import { Subject } from 'rxjs/Subject';
   styleUrls: ['./forms.component.scss']
 })
 export class FormsComponent implements OnInit {
+  @Input() count:number;
   public searchText:string;
   public searchTextStream:Subject<string> = new Subject<string>();
 

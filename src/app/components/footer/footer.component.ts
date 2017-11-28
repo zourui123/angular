@@ -1,4 +1,4 @@
-import { Component, OnInit,ViewChild,ElementRef } from '@angular/core';
+import { Component, OnInit,ViewChild,ElementRef,Output, EventEmitter  } from '@angular/core';
 // 服务需要引
 
 import { Subscription } from 'rxjs/Subscription';
@@ -40,5 +40,12 @@ export class FooterComponent implements OnInit {
     console.log(this.jokeContent)
     this.jokeContent = '';
     this.saved = true
+  }
+  count: number = 22222222222;
+  @Output() change:EventEmitter<number> = new EventEmitter<number>();
+
+  clicked(){
+    console.log(1111)
+    this.change.emit(this.count)
   }
 }

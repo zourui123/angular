@@ -10,6 +10,10 @@ import { FooterComponent } from './components/footer/footer.component';
 })
 export class AppComponent {
   // 动态创建 需要引入
+  public hero;
+  public title = 'app';
+  initCount: number = 5;
+  changeMsg: string;
   @ViewChild('container',{read:ViewContainerRef})
   container:ViewContainerRef;
   comp1: ComponentRef<FooterComponent>
@@ -19,8 +23,10 @@ export class AppComponent {
   constructor(
     private resolver:ComponentFactoryResolver,
     public router:Router){}
-  public title = 'app';
-
+  
+    ngInit(){
+   
+    }
  
   // 动态创建 需要引入 写在ngAfterContentInit 钩子中
   ngAfterContentInit() {
@@ -30,7 +36,10 @@ export class AppComponent {
     this.comp1.instance.title = "子组件动态赋值"
     //Called after ngOnInit when the component's or directive's content has been initialized.
     //Add 'implements AfterContentInit' to the class.
-    
+    this.hero = [
+      { "name":"zou"},
+      { "name":"daming"}
+    ]
   }
   // 删除 动态创建的子组件
   public destoryChild():void{
@@ -39,5 +48,12 @@ export class AppComponent {
   public goNav(){
     // 需要引入 router
       this.router.navigate(['/shadow'],{queryParams:{userId:222,name:'zzz'}})
+  }
+  public selected(item){
+     console.log(item)
+  }
+  public getChange(event: number){
+    console.log(2222)
+  this.changeMsg = '子组件change事件触发 值为:' + event
   }
 }
